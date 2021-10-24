@@ -1,8 +1,17 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { Video, Audio } from 'expo-av';
 import { PanGestureHandler, TapGestureHandler } from 'react-native-gesture-handler'
-import Animated, { Extrapolate, interpolate, useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withDelay, withSpring, withTiming } from 'react-native-reanimated';
+import Animated, { 
+  Extrapolate, 
+  interpolate, 
+  useAnimatedGestureHandler, 
+  useAnimatedStyle, 
+  useSharedValue, 
+  withDelay, 
+  withSpring, 
+  withTiming 
+} from 'react-native-reanimated';
 import { AntDesign } from '@expo/vector-icons';
 import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics';
 
@@ -21,7 +30,6 @@ export default function App() {
 
   const translationX = useSharedValue(0);
   const translationY = useSharedValue(0);
-  const borderRadius = useSharedValue(0);
 
   const functionTeste = useCallback(() => {
     setTeste(oldState => !oldState);
