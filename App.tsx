@@ -4,6 +4,7 @@ import { Video, Audio } from 'expo-av';
 import { TapGestureHandler } from 'react-native-gesture-handler'
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withSpring, withTiming } from 'react-native-reanimated';
 import { AntDesign } from '@expo/vector-icons';
+import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics';
 
 const videoURL2 = 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
 const { height, width } = Dimensions.get('window');
@@ -31,7 +32,8 @@ export default function App() {
     })
   }, [])
 
-  const doubleTap = useCallback(() => {
+  const doubleTap = useCallback(async () => {
+    await impactAsync(ImpactFeedbackStyle.Heavy)
     scale.value = withSpring(1, undefined, (isFinished) => {
         if (isFinished) {
           scale.value = withDelay(300,withTiming(0));
