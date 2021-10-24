@@ -6,7 +6,7 @@ import Animated, { Extrapolate, interpolate, useAnimatedGestureHandler, useAnima
 import { AntDesign } from '@expo/vector-icons';
 import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics';
 
-const videoURL2 = 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
+const videoURL = 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
 const { height, width } = Dimensions.get('window');
 
 export default function App() {
@@ -96,7 +96,7 @@ export default function App() {
                 ref={video}
                 style={styles.video}
                 source={{
-                  uri: videoURL2
+                  uri: videoURL
                 }}
                 resizeMode="cover"
                 isLooping
